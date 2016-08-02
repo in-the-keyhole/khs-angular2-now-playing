@@ -1,15 +1,12 @@
 body {
-    font-family: 'Montserrat', serif;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
     background-color: #000;
     color: #fff;
 }
 
-h1 {
-    font-size: 4em;
-}
-
-.movie-container {
-    text-align: center;
+h2 {
+    font-size: 1.2em;
+    text-transform: uppercase;
 }
 
 .movie-container ul {
