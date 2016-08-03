@@ -9,6 +9,10 @@ h2 {
     text-transform: uppercase;
 }
 
+.movie-container {
+
+}
+
 .movie-container ul {
     padding: 0;
     margin: 0;
@@ -22,6 +26,15 @@ h2 {
 
     -webkit-flex-flow: row wrap;
     justify-content: space-around;
+}
+
+.movie-container input {
+    padding: 5px;
+    background: #000;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    top: 0;
 }
 
 .movie {
