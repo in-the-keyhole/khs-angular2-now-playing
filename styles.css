@@ -25,7 +25,7 @@ h2 {
     display: flex;
 
     -webkit-flex-flow: row wrap;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
 }
 
 .movie-container input {
