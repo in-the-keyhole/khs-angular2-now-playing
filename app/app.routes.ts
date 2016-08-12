@@ -1,13 +1,13 @@
-import {RouterConfig, provideRouter} from "@angular/router";
+import {Routes, RouterModule} from '@angular/router';
 import {MoviesComponent} from "./movies.component";
 import {MovieComponent} from "./movie.component";
 
-const routes:RouterConfig = [
+const appRoutes:Routes = [
     {path: '', redirectTo: 'movies', pathMatch: 'full'},
     {path: 'movies', component: MoviesComponent},
     {path: 'movies/:id', component: MovieComponent}
 ];
 
-export const appRouterProviders = [
-    provideRouter(routes)
-];
+export const appRoutingProviders:any[] = [];
+
+export const routing = RouterModule.forRoot(appRoutes);
