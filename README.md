@@ -19,7 +19,7 @@ Prerequisites: You must have Node/npm installed.
 This will run the TypeScript compiler in watch mode, and lite-server with Browsersync enabled.  It should automatically launch your default web browser on http://localhost:3000.
 
 ###More Information On "Angular 2 In Action!"
-This event is taking/took place in Kansas City on August 11, 2016 and in St. Louis September 1, 2016. In this educational Breakfast Boost, Keyhole Principal Consultants will present a live demonstration of Angular 2 in action.
+This event is taking/took place in Kansas City on August 11, 2016, St. Louis September 1, 2016, Detroit, September 22, 2016, and Lincoln September 28, 2016. In this educational talk, Keyhole Principal Consultants will present a live demonstration of Angular 2 in action.
 
 AngularJS is one of the most popular JavaScript frameworks available for creating web applications. The switch from Angular 1 and adoption of Angular 2 has been a source of anxiety for members of the enterprise. That enterprise concern is what we seek to alleviate in this talk. 
 
@@ -30,3 +30,6 @@ The presentation will be followed with a Q&A session, where Niswonger will answe
 All public Keyhole Software educational events can be found on the [Keyhole Eventbrite page](http://www.eventbrite.com/o/keyhole-software-2942446951).
 
 This content is from [Keyhole Software](https://keyholesoftware.com). We love knowledge transfer!
+
+###Comparing to Angular 1
+A similar now-playing app has been developed using Angular 1. See what makes this app different by checking it out [here](https://github.com/in-the-keyhole/angular-now-playing). 
