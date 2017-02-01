@@ -1,5 +1,6 @@
 <html>
   <head>
+    <base href="/">
     <title>Angular 2 - Now Playing</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,12 +16,12 @@
     <script>
       System.import('app').catch(function(err){ console.error(err); });
     </script>
-
+    <link rel="stylesheet" href="styles.css">
   </head>
 
   <!-- 3. Display the application -->
   <body>
-    <h1>Hello World</h1>
+    <movies-app></movies-app>
   </body>
 </html>
 
