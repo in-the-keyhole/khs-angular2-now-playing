@@ -10,10 +10,12 @@ import {Router} from "@angular/router";
   template: `
   <div class="movie-detail" *ngIf="movie">
       <h2>{{movie.title}}</h2>
-      <h3>{{movie.overview}}</h3>
       <span class="close" (click)="close()"></span>
       <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}"/>
   </div>
+  <div>
+  <h3>{{movie.overview}}</h3>
+</div>
 `,
 })
 export class MoviesComponent implements OnInit {
@@ -31,7 +33,6 @@ export class MoviesComponent implements OnInit {
       params => {
         let id = params['id'];
         if (id) this.getDetail(id);
-        console.log('id is '+ id)
       }
     );
   }
@@ -41,7 +42,6 @@ export class MoviesComponent implements OnInit {
   }
 
   getDetail(id: number) {
-    console.log(id)
     this.movieService.movie(id).subscribe(movieDetail => this.movie = movieDetail)
   }
 

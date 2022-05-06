@@ -1,31 +1,25 @@
 body {
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     background-color: #000;
     color: #fff;
 }
 
 h2 {
-    font-size: 1.2em;
+    margin-top: 20px;
+    font-size: 2.2em;
     text-transform: uppercase;
-}
-
-.movie-container {
-
 }
 
 .movie-container ul {
     padding: 0;
     margin: 0;
     list-style: none;
-
     display: -webkit-box;
     display: -moz-box;
     display: -ms-flexbox;
     display: -webkit-flex;
     display: flex;
-
     -webkit-flex-flow: row wrap;
-    /*justify-content: space-around;*/
 }
 
 .movie-container input {
@@ -103,7 +97,8 @@ h2 {
     transform: rotate(-45deg);
 }
 
-.close::before, .close::after {
+.close::before,
+.close::after {
     content: '';
     position: absolute;
     height: 4px;
@@ -115,6 +110,7 @@ h2 {
     border-radius: 5px;
 }
 
-.close:hover::before, .close:hover::after {
+.close:hover::before,
+.close:hover::after {
     background: #1ebcc5;
 }

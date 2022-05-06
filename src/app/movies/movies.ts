@@ -16,6 +16,7 @@ import {Router} from "@angular/router";
       </ul>
   </div>
 `})
+
 export class MovieComponent implements OnInit {
   public movies:any[] = [];
   public filterText:string = "";
@@ -24,6 +25,9 @@ export class MovieComponent implements OnInit {
     private moviesService: MovieService, private router:Router
   ) { }
 
+  ngOnInit(): void {
+    this.nowPlaying();
+  }
 
   filter() {
     this.filteredMovies = this.movies.filter(movie =>
@@ -32,16 +36,10 @@ export class MovieComponent implements OnInit {
   }
 
   showDetail(movie:Movie) {
-    console.log(movie.id)
-  this.router.navigate([`movie/${movie.id}`]);
-  }
-
-  ngOnInit(): void {
-    this.nowPlaying();
+    this.router.navigate([`movie/${movie.id}`]);
   }
 
   nowPlaying() {
     this.moviesService.nowPlaying().subscribe(movies => this.movies = movies.results)
-    console.log(this.movies)
   }
 }
