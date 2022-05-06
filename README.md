@@ -22,7 +22,7 @@ Prerequisites: You must have Node/npm installed.
 1. npm install
 2. npm start
 
-This will run the TypeScript compiler in watch mode, and lite-server with Browsersync enabled.  It should automatically launch your default web browser on http://localhost:3000.
+This will run the TypeScript compiler in watch mode, and lite-server with Browsersync enabled.  It should automatically launch your default web browser on http://localhost:4200.
 
 ### More Information On "Angular 2 In Action!"
 In this educational talk, Keyhole Principal Consultants present a live demonstration of Angular 2 in action.
