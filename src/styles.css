@@ -1,0 +1,120 @@
+body {
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    background-color: #000;
+    color: #fff;
+}
+
+h2 {
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.movie-container {
+
+}
+
+.movie-container ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -webkit-flex-flow: row wrap;
+    /*justify-content: space-around;*/
+}
+
+.movie-container input {
+    padding: 5px;
+    background: #000;
+    color: #fff;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+}
+
+.movie {
+    padding: 5px;
+    margin-top: 10px;
+
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.movie img {
+    display: block;
+}
+
+.movie-detail {
+    position: relative;
+}
+
+.movie-detail img {
+    width: 100%;
+}
+
+.movie-detail h2 {
+    position: absolute;
+    left: 50px;
+    bottom: 350px;
+}
+
+.movie-detail h3 {
+    position: absolute;
+    left: 50px;
+    bottom: 25px;
+}
+
+.movie-detail span {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.close {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+.close::before {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.close::after {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.close::before, .close::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    margin-top: -2px;
+    background: #fff;
+    border-radius: 5px;
+}
+
+.close:hover::before, .close:hover::after {
+    background: #1ebcc5;
+}
