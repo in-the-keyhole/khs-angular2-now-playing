@@ -1,13 +1,22 @@
 import { MovieService } from '../services/movie.service';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'movies',
   template: `
+  <div class="dropdown">
+  <button class="dropbtn">See More</button>
+  <div class="dropdown-content">
+    <a (click)="topRatedMovies();">Top Rated</a>
+    <a (click)="nowPlaying();">Now Playing</a>
+    <a (click)="upcomingMovies();">Upcoming</a>
+    <a (click)="trendingMovies();">Trending</a>
+  </div>
+</div>
   <div class="movie-container">
-      <h2>Now Playing</h2>
+      <h2>{{title}}</h2>
       <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="filter()">
       <ul>
         <div class='now-playing-container' *ngIf="showMovies">
@@ -25,12 +34,13 @@ import {Router} from "@angular/router";
 `})
 
 export class MovieComponent implements OnInit {
-  public movies:any[] = [];
-  public filterText:string = "";
-  public filteredMovies:any[] = [];
+  public movies: any[] = [];
+  public filterText: string = "";
+  public title: string = "";
+  public filteredMovies: any[] = [];
   public showMovies: boolean = true;
   constructor(
-    private moviesService: MovieService, private router:Router
+    private moviesService: MovieService, private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,16 +50,35 @@ export class MovieComponent implements OnInit {
   filter() {
     this.showMovies = false;
     this.filteredMovies = this.movies.filter(movie =>
-        movie.title.toLowerCase().match(this.filterText) !== null
+      movie.title.toLowerCase().match(this.filterText) !== null
     )
   }
 
-  showDetail(movie:Movie) {
+  showDetail(movie: Movie) {
     this.router.navigate([`movie/${movie.id}`]);
   }
 
   nowPlaying() {
+    this.title = 'Now Playing';
     this.moviesService.nowPlaying().subscribe(movies => this.movies = movies.results);
+    this.showMovies = true;
+  }
+
+  topRatedMovies() {
+    this.title = 'Top Rated';
+    this.moviesService.topRatedMovies().subscribe(movies => this.movies = movies.results);
+    this.showMovies = true;
+  }
+
+  upcomingMovies() {
+    this.title = 'Upcoming Movies';
+    this.moviesService.upcomingMovies().subscribe(movies => this.movies = movies.results);
+    this.showMovies = true;
+  }
+
+  trendingMovies() {
+    this.title = 'Trending Movies';
+    this.moviesService.trendingMovies().subscribe(movies => this.movies = movies.results);
     this.showMovies = true;
   }
 }

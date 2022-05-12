@@ -28,7 +28,35 @@ export class MovieService {
   movie(id : number) {
     let detailsUrl = `${this.url}${id}?api_key=${this.apiKey}`;
     return this.http.get<Movie>(detailsUrl)
+    .pipe (
+      catchError(this.handleError<any>('topRatedMovies'))
+    )
   }
+
+  topRatedMovies() {
+    let movieurl = `${this.url}top_rated?api_key=${this.apiKey}`;
+    return this.http.get<Movies>(movieurl)
+    .pipe (
+      catchError(this.handleError<Movies>('topRatedMovies'))
+    )
+  }
+
+  upcomingMovies() {
+    let movieurl = `${this.url}upcoming?api_key=${this.apiKey}`;
+    return this.http.get<Movies>(movieurl)
+    .pipe (
+      catchError(this.handleError<Movies>('upcomingMovies'))
+    )
+  }
+
+  trendingMovies() {
+    let movieurl = `${this.url}popular?api_key=${this.apiKey}`;
+    return this.http.get<Movies>(movieurl)
+    .pipe (
+      catchError(this.handleError<Movies>('trendingMovies'))
+    )
+  }
+  
   /**
  * @param operation
  * @param result
