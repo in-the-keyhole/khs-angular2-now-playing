@@ -7,27 +7,27 @@ import { Router } from "@angular/router";
   selector: 'movies',
   template: `
   <div class="dropdown">
-  <button class="dropbtn">See More</button>
-  <div class="dropdown-content">
-    <a (click)="topRatedMovies();">Top Rated</a>
-    <a (click)="nowPlaying();">Now Playing</a>
-    <a (click)="upcomingMovies();">Upcoming</a>
-    <a (click)="trendingMovies();">Trending</a>
+      <button class="dropbtn">See More</button>
+      <div class="dropdown-content">
+          <a (click)="topRatedMovies();">Top Rated</a>
+          <a (click)="nowPlaying();">Now Playing</a>
+          <a (click)="upcomingMovies();">Upcoming</a>
+          <a (click)="trendingMovies();">Trending</a>
+      </div>
   </div>
-</div>
   <div class="movie-container">
       <h2>{{title}}</h2>
-      <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="filter()">
+      <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="filter()" />
       <ul>
-        <div class='now-playing-container' *ngIf="showMovies">
-        <li *ngFor="let movie of movies" (click)="showDetail(movie)">
-              <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
-          </li>
-        </div>
-        <div class='now-playing-container'>
-          <li *ngFor="let movie of filteredMovies" (click)="showDetail(movie)">
-              <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
-          </li>
+          <div class="now-playing-container" *ngIf="showMovies">
+              <li *ngFor="let movie of movies" (click)="showDetail(movie)">
+                  <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" />
+              </li>
+          </div>
+          <div class="now-playing-container">
+              <li *ngFor="let movie of filteredMovies" (click)="showDetail(movie)">
+                  <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}" />
+              </li>
           </div>
       </ul>
   </div>

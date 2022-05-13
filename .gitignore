@@ -5,3 +5,4 @@ app/**/*.js
 app/**/*.js
 app/**/*.js.map
 npm-debug.log
+.DS_Store

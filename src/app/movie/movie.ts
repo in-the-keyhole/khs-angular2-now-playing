@@ -2,21 +2,27 @@ import { MovieService } from '../services/movie.service';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import {Location} from '@angular/common';
-import {Router} from "@angular/router";
+import { Location } from '@angular/common';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'movie',
   template: `
-  <div class="movie-detail" *ngIf="movie">
-      <h2>{{movie.title}}</h2>
-      <span class="close" (click)="close()"></span>
-      <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}"/>
+  <h2>{{movie.title}}</h2>
+  <div class="container">
+      <div class="image">
+          <img src="http://image.tmdb.org/t/p/w1280{{movie.poster_path}}" />
+      </div>
+      <div class="text">
+          <div>Released: {{movie.release_date}}</div>
+          <div>Rating: {{movie.vote_average}}</div>
+          <br />
+          <div>
+              {{movie.overview}}
+          </div>
+      </div>
   </div>
-  <div>
-  <h3>{{movie.overview}}</h3>
-</div>
-`,
+  `,
 })
 export class MoviesComponent implements OnInit {
 
@@ -25,7 +31,7 @@ export class MoviesComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private route: ActivatedRoute,
-    private location: Location, private router:Router
+    private location: Location, private router: Router
   ) { }
 
   ngOnInit(): void {
