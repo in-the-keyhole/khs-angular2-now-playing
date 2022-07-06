@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   selector: 'movies',
   template: `
   <div class="movie-container">
-      <h2>Now Playing</h2>
+      <h2>Now Playing!</h2>
       <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="filter()">
       <ul>
         <div class='now-playing-container' *ngIf="showMovies">

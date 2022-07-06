@@ -1,4 +1,4 @@
-import { MovieService } from '../services/movie.service';
+import { MovieServiceNew } from '../services/movie.new.service';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -23,7 +23,7 @@ export class MoviesComponent implements OnInit {
   movie!: Movie;
 
   constructor(
-    private movieService: MovieService,
+    private movieServiceNew: MovieServiceNew,
     private route: ActivatedRoute,
     private location: Location, private router:Router
   ) { }
@@ -42,7 +42,7 @@ export class MoviesComponent implements OnInit {
   }
 
   getDetail(id: number) {
-    this.movieService.movie(id).subscribe(movieDetail => this.movie = movieDetail)
+    this.movieServiceNew.movie(id).subscribe(movieDetail => this.movie = movieDetail)
   }
 
   getFormattedTime(min: number) {
