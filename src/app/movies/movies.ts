@@ -1,4 +1,4 @@
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../services/movie.service.gql';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
