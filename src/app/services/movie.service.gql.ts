@@ -16,15 +16,15 @@ export class MovieService {
   constructor(private apollo: Apollo){
 
     this.moviesQuery = this.apollo.watchQuery( {
-      query: gql`query nowPlaying{
-        movies {
-            id
-            title
-            overview
-            posterPath          
+      query: gql`query { nowPlaying {
+        id 
+        title
+        overview
+        posterPath
         }
       }`
-    });
+    }
+    );
 
     this.movieQuery = this.apollo.watchQuery({
       query: gql`query movie($id: number!) {
@@ -41,7 +41,7 @@ export class MovieService {
 
   async nowPlaying() {
     const result = await this.moviesQuery.refetch();
-    return result.data.movies;    
+    return result.data.movies.results;    
   }
 
   async movie(id : number) {

@@ -28,9 +28,9 @@ export class MoviesComponent implements OnInit {
     private location: Location, private router:Router
   ) { }
 
+
   ngOnInit(): void {
-    this.route.params.subscribe(
-      params => {
+    this.route.queryParams.subscribe(async (params) => {
         let id = params['id'];
         if (id) this.getDetail(id);
       }
@@ -41,8 +41,9 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  getDetail(id: number) {
-    this.movieService.movie(id).subscribe(movieDetail => this.movie = movieDetail)
+  async getDetail(id: number) {
+    this.movie = await this.movieService.movie(id);
+    //this.movieService.movie(id).subscribe(movieDetail => this.movie = movieDetail)
   }
 
   getFormattedTime(min: number) {

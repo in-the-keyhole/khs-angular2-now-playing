@@ -2,6 +2,7 @@ import { MovieService } from '../services/movie.service.gql';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
+import { Movies } from '../model/movies';
 
 @Component({
   selector: 'movies',
@@ -26,19 +27,24 @@ import {Router} from "@angular/router";
 
 export class MovieComponent implements OnInit {
   public movies:any[] = [];
+  //public movies!: Movies;
+  //movies: Movie[] = [];
+  //characters: Character[] = [];
   public filterText:string = "";
+  //public filteredMovies!: Movies;
   public filteredMovies:any[] = [];
   public showMovies: boolean = true;
   constructor(
     private moviesService: MovieService, private router:Router
   ) { }
 
-  ngOnInit(): void {
-    this.nowPlaying();
+  async ngOnInit(): Promise<void> {
+    await this.nowPlaying();
   }
 
   filter() {
     this.showMovies = false;
+    //this.filteredMovies = this.movies;
     this.filteredMovies = this.movies.filter(movie =>
         movie.title.toLowerCase().match(this.filterText) !== null
     )
@@ -48,8 +54,10 @@ export class MovieComponent implements OnInit {
     this.router.navigate([`movie/${movie.id}`]);
   }
 
-  nowPlaying() {
-    this.moviesService.nowPlaying().subscribe(movies => this.movies = movies.results);
+  async nowPlaying() {    
+    //const result = await this.moviesService.nowPlaying();
+    this.movies = await this.moviesService.nowPlaying();
+
     this.showMovies = true;
   }
 }
