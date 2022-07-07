@@ -1,4 +1,3 @@
-import { Movies } from '../model/movies';
 import { Movie } from '../model/movie';
 import { Injectable } from '@angular/core';
 import { Apollo, gql, QueryRef } from 'apollo-angular';
@@ -9,14 +8,14 @@ import { Apollo, gql, QueryRef } from 'apollo-angular';
 export class MovieService {
 
 //queries
-  private moviesQuery!: QueryRef<{ movies: Movie[] }, {}>;
-  private movieQuery!: QueryRef<{movie: Movie}, { id: number}>;
+  private nowPlayingQuery: QueryRef<{ nowPlaying: Movie[] }>;
+  private movieQuery: QueryRef<{movie: Movie}, { id: number}>;
 
 //constructor
   constructor(private apollo: Apollo){
 
-    this.moviesQuery = this.apollo.watchQuery( {
-      query: gql`query { nowPlaying {
+    this.nowPlayingQuery = this.apollo.watchQuery( {
+      query: gql`query nowPlaying { nowPlaying {
         id 
         title
         overview
@@ -41,8 +40,8 @@ export class MovieService {
    
 
   async nowPlaying(): Promise<Movie[]>  {
-    const result = await this.moviesQuery.refetch();     
-    return result.data.movies;
+    const result = await this.nowPlayingQuery.refetch();
+    return result.data.nowPlaying;
   }
   
   async movie(id : number) {
@@ -51,3 +50,5 @@ export class MovieService {
   }
   
 }
+
+

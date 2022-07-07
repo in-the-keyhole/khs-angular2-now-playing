@@ -2,7 +2,7 @@ import { MovieService } from '../services/movie.service.gql';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
 import {Router} from "@angular/router";
-import { Movies } from '../model/movies';
+//import { Movies } from '../services/movie.service.gql';
 
 @Component({
   selector: 'movies',
@@ -13,12 +13,12 @@ import { Movies } from '../model/movies';
       <ul>
         <div class='now-playing-container' *ngIf="showMovies">
         <li *ngFor="let movie of movies" (click)="showDetail(movie)">
-              <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
+              <img src="http://image.tmdb.org/t/p/w300{{movie.posterPath}}"/>
           </li>
         </div>
         <div class='now-playing-container'>
           <li *ngFor="let movie of filteredMovies" (click)="showDetail(movie)">
-              <img src="http://image.tmdb.org/t/p/w300{{movie.poster_path}}"/>
+              <img src="http://image.tmdb.org/t/p/w300{{movie.posterPath}}"/>
           </li>
           </div>
       </ul>
@@ -27,9 +27,8 @@ import { Movies } from '../model/movies';
 
 export class MovieComponent implements OnInit {
   movies: Movie[] = [];
-  
+    
   public filterText:string = "";
-  //public filteredMovies!: Movies;
   public filteredMovies:any[] = [];
   public showMovies: boolean = true;
   constructor(
@@ -52,9 +51,11 @@ export class MovieComponent implements OnInit {
     this.router.navigate([`movie/${movie.id}`]);
   }
 
-  async nowPlaying() {    
+  
+  async nowPlaying() {  
+    this.showMovies = true;  
     const result = await this.moviesService.nowPlaying();
     this.movies = result;
-    this.showMovies = true;
+    
   }
 }
