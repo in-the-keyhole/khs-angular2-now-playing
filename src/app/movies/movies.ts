@@ -26,10 +26,8 @@ import { Movies } from '../model/movies';
 `})
 
 export class MovieComponent implements OnInit {
-  public movies:any[] = [];
-  //public movies!: Movies;
-  //movies: Movie[] = [];
-  //characters: Character[] = [];
+  movies: Movie[] = [];
+  
   public filterText:string = "";
   //public filteredMovies!: Movies;
   public filteredMovies:any[] = [];
@@ -55,9 +53,8 @@ export class MovieComponent implements OnInit {
   }
 
   async nowPlaying() {    
-    //const result = await this.moviesService.nowPlaying();
-    this.movies = await this.moviesService.nowPlaying();
-
+    const result = await this.moviesService.nowPlaying();
+    this.movies = result;
     this.showMovies = true;
   }
 }

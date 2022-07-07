@@ -9,7 +9,7 @@ import { Apollo, gql, QueryRef } from 'apollo-angular';
 export class MovieService {
 
 //queries
-  private moviesQuery!: QueryRef<{ movies: Movies }, {}>;
+  private moviesQuery!: QueryRef<{ movies: Movie[] }, {}>;
   private movieQuery!: QueryRef<{movie: Movie}, { id: number}>;
 
 //constructor
@@ -38,12 +38,13 @@ export class MovieService {
     });
 
    }
+   
 
-  async nowPlaying() {
-    const result = await this.moviesQuery.refetch();
-    return result.data.movies.results;    
+  async nowPlaying(): Promise<Movie[]>  {
+    const result = await this.moviesQuery.refetch();     
+    return result.data.movies;
   }
-
+  
   async movie(id : number) {
     const result = await this.movieQuery.refetch({ id });
     return result.data.movie;
