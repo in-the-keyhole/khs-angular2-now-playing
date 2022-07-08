@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
   <div class="movie-detail" *ngIf="movie">
       <h2>{{movie.title}}</h2>
       <span class="close" (click)="close()"></span>
-      <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}"/>
+      <img src="http://image.tmdb.org/t/p/w1280{{movie.posterPath}}"/>
   </div>
   <div>
   <h3>{{movie.overview}}</h3>
@@ -30,7 +30,8 @@ export class MoviesComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(async (params) => {
+    this.route.params.subscribe(
+      params => {
         let id = params['id'];
         if (id) this.getDetail(id);
       }
@@ -41,9 +42,9 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  async getDetail(id: number) {
-    this.movie = await this.movieService.movie(id);
-    //this.movieService.movie(id).subscribe(movieDetail => this.movie = movieDetail)
+  async getDetail(id: number) {    
+    this.movie = await this.movieService.movie(id); 
+    
   }
 
   getFormattedTime(min: number) {

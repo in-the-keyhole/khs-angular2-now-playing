@@ -26,18 +26,18 @@ export class MovieService {
     );
 
     this.movieQuery = this.apollo.watchQuery({
-      query: gql`query movie($id: number!) {
-        movie(name: $id) {
+      query: gql`query movie($id: ID!) {
+        movie(id: $id) {
           id
           title
           overview
           posterPath
-        }
+          }        
       }`
     });
 
-   }
-   
+    
+   }   
 
   async nowPlaying(): Promise<Movie[]>  {
     const result = await this.nowPlayingQuery.refetch();

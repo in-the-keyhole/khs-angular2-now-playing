@@ -1,5 +1,10 @@
 import { Movie } from './movie';
 
-export interface Movies {
-   results: Movie[];
+export class Movies {
+    constructor(
+        public page: number,
+        public results: Movie[],
+        public total_pages: number,
+        public total_results: number
+    ) {}
 }
