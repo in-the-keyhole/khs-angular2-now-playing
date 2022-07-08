@@ -11,13 +11,13 @@ import {Router} from "@angular/router";
       <input type="text" placeholder="Filter..." [(ngModel)]="filterText" (keyup)="filter()">
       <ul>
         <div class='now-playing-container' *ngIf="showMovies">
-        <li *ngFor="let movie of movies" (click)="showDetail(movie)">
-              <img src="http://image.tmdb.org/t/p/w300{{movie.posterPath}}"/>
+        <li class="movies-images" *ngFor="let movie of movies" (click)="showDetail(movie)">
+              <img class="movies-images"  src="{{movie.posterPathW342}}"/>
           </li>
         </div>
         <div class='now-playing-container'>
-          <li *ngFor="let movie of filteredMovies" (click)="showDetail(movie)">
-              <img src="http://image.tmdb.org/t/p/w300{{movie.posterPath}}"/>
+          <li class="movies-images" *ngFor="let movie of filteredMovies" (click)="showDetail(movie)">
+              <img class="movies-images" src="{{movie.posterPathW342}}" />
           </li>
           </div>
       </ul>

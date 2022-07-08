@@ -20,6 +20,7 @@ export class MovieService {
         title
         overview
         posterPath
+        posterPathW342
         }
       }`
     }
@@ -32,6 +33,7 @@ export class MovieService {
           title
           overview
           posterPath
+          posterPathW342
           }        
       }`
     });

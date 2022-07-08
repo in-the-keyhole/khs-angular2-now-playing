@@ -16,6 +16,7 @@ export class Movie {
         public original_title : string,
         public popularity : number,
         public posterPath : string,
+        public posterPathW342 : string,
         public production_companies: {
           id: number,
           name: string

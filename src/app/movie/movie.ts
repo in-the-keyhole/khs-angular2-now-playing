@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
   <div class="movie-detail" *ngIf="movie">
       <h2>{{movie.title}}</h2>
       <span class="close" (click)="close()"></span>
-      <img src="http://image.tmdb.org/t/p/w1280{{movie.posterPath}}"/>
+      <img src="{{movie.posterPathW342}}"/>
   </div>
   <div>
   <h3>{{movie.overview}}</h3>
