@@ -33,7 +33,7 @@ export class MovieService {
           title
           overview
           posterPath
-          posterPathW342
+          backdropPathW1280
           }        
       }`
     });

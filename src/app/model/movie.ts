@@ -17,6 +17,8 @@ export class Movie {
         public popularity : number,
         public posterPath : string,
         public posterPathW342 : string,
+        public posterPathW780 : string,
+        public backdropPathW1280 : string,
         public production_companies: {
           id: number,
           name: string
