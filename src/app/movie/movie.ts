@@ -42,7 +42,7 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  getDetail(id: number) {    
+  async getDetail(id: number) {    
     this.movie = await this.movieService.movie(id); 
     
   }
