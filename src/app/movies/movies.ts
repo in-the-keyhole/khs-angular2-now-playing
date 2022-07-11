@@ -51,8 +51,8 @@ export class MovieComponent implements OnInit {
 
   
   async nowPlaying() {      
-    const result = await this.moviesService.nowPlaying();
-    this.movies = result;
+    const movies = await this.moviesService.nowPlaying();
+    this.movies = movies.results;
     this.showMovies = true;
     
   }

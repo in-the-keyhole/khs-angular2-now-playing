@@ -1,4 +1,5 @@
 import { Movie } from '../model/movie';
+import { Movies } from '../model/movies';
 import { Injectable } from '@angular/core';
 import { Apollo, gql, QueryRef } from 'apollo-angular';
 
@@ -41,9 +42,11 @@ export class MovieService {
     
    }   
 
-  async nowPlaying(): Promise<Movie[]>  {
+  async nowPlaying(): Promise<Movies>  {
+    const movies = new Movies(0,[],0,0);
     const result = await this.nowPlayingQuery.refetch();
-    return result.data.nowPlaying;
+    movies.results = result.data.nowPlaying;
+    return movies;
   }
   
   async movie(id : number) {
