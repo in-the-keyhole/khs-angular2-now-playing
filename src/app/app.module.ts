@@ -8,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesComponent } from './movie/movie';
 import {FormsModule} from "@angular/forms";
+import { GraphQLModule } from './graphql.module';
 
 const appRoutes: Routes = [];
 
@@ -21,7 +22,8 @@ const appRoutes: Routes = [];
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    GraphQLModule
   ],
   providers: [],
   bootstrap: [AppComponent],

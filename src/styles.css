@@ -24,6 +24,7 @@ h2 {
     flex-wrap: wrap;
 }
 
+
 .movie-container input {
     padding: 5px;
     background: #000;
@@ -40,6 +41,11 @@ h2 {
     font-weight: bold;
     text-align: center;
     cursor: pointer;
+}
+
+.movies-images {
+    width: 300px;
+    height: 450px;
 }
 
 .movie img {

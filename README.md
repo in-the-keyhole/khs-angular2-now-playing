@@ -2,7 +2,7 @@
 
 This repository contains an example Angular 2 application that displays movies currently at the theater. It was built solely as an example of using Angular 2 and is not intended to be used beyond the learning experience. 
 
-The project utilizes the [TMDb API](https://www.themoviedb.org/).
+The project utilizes the khs-sls-movie api via graphQL (https://movies.keyhole.institute/graphql)
 
 ![Screenshot](screenshot.png)
 <sup>Note: the image shown above is not owned by Keyhole, and all copyrights belong to their respective owners. The image used here is only for education and is not intended to generate income.</sup>

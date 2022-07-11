@@ -14,9 +14,11 @@ export class Movie {
         public imdb_id : string,
         public original_language : string,
         public original_title : string,
-        public ovierview : string,
         public popularity : number,
-        public poster_path : string,
+        public posterPath : string,
+        public posterPathW342 : string,
+        public posterPathW780 : string,
+        public backdropPathW1280 : string,
         public production_companies: {
           id: number,
           name: string

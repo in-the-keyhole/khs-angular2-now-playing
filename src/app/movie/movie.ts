@@ -1,4 +1,4 @@
-import { MovieService } from '../services/movie.service';
+import { MovieService } from '../services/movie.service.gql';
 import { Movie } from '../model/movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
   <div class="movie-detail" *ngIf="movie">
       <h2>{{movie.title}}</h2>
       <span class="close" (click)="close()"></span>
-      <img src="http://image.tmdb.org/t/p/w1280{{movie.backdrop_path}}"/>
+      <img src="{{movie.backdropPathW1280}}"/>
   </div>
   <div>
   <h3>{{movie.overview}}</h3>
@@ -28,6 +28,7 @@ export class MoviesComponent implements OnInit {
     private location: Location, private router:Router
   ) { }
 
+
   ngOnInit(): void {
     this.route.params.subscribe(
       params => {
@@ -41,8 +42,9 @@ export class MoviesComponent implements OnInit {
     this.router.navigate(['/movies']);
   }
 
-  getDetail(id: number) {
-    this.movieService.movie(id).subscribe(movieDetail => this.movie = movieDetail)
+  async getDetail(id: number) {    
+    this.movie = await this.movieService.movie(id); 
+    
   }
 
   getFormattedTime(min: number) {
