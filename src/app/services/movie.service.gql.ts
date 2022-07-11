@@ -8,11 +8,9 @@ import { Apollo, gql, QueryRef } from 'apollo-angular';
 })
 export class MovieService {
 
-//queries
   private nowPlayingQuery: QueryRef<{ nowPlaying: Movie[] }>;
   private movieQuery: QueryRef<{movie: Movie}, { id: number}>;
 
-//constructor
   constructor(private apollo: Apollo){
 
     this.nowPlayingQuery = this.apollo.watchQuery( {
